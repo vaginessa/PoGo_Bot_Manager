@@ -38,6 +38,7 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -49,14 +50,14 @@ Partial Class Form1
         Me.TabControl1.Location = New System.Drawing.Point(13, 16)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(514, 279)
+        Me.TabControl1.Size = New System.Drawing.Size(507, 286)
         Me.TabControl1.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(533, 23)
+        Me.Label1.Location = New System.Drawing.Point(526, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(58, 13)
         Me.Label1.TabIndex = 2
@@ -67,7 +68,7 @@ Partial Class Form1
         Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Items.AddRange(New Object() {"Haxton"})
-        Me.ComboBox1.Location = New System.Drawing.Point(597, 19)
+        Me.ComboBox1.Location = New System.Drawing.Point(590, 19)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(98, 21)
         Me.ComboBox1.TabIndex = 0
@@ -75,7 +76,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(698, 19)
+        Me.Button2.Location = New System.Drawing.Point(691, 19)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(23, 21)
         Me.Button2.TabIndex = 3
@@ -85,7 +86,7 @@ Partial Class Form1
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(13, 275)
+        Me.ListBox1.Location = New System.Drawing.Point(198, 218)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(172, 30)
         Me.ListBox1.TabIndex = 4
@@ -94,13 +95,15 @@ Partial Class Form1
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.WebBrowser1)
         Me.GroupBox1.Controls.Add(Me.Button6)
+        Me.GroupBox1.Controls.Add(Me.ListBox1)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.Button5)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Location = New System.Drawing.Point(536, 47)
+        Me.GroupBox1.Location = New System.Drawing.Point(529, 54)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(185, 248)
         Me.GroupBox1.TabIndex = 5
@@ -179,18 +182,28 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.Location = New System.Drawing.Point(20, 46)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(499, 242)
+        Me.RichTextBox1.Size = New System.Drawing.Size(492, 249)
         Me.RichTextBox1.TabIndex = 7
         Me.RichTextBox1.Text = ""
+        '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Location = New System.Drawing.Point(200, 185)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.ScriptErrorsSuppressed = True
+        Me.WebBrowser1.Size = New System.Drawing.Size(163, 57)
+        Me.WebBrowser1.TabIndex = 8
+        Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
+        Me.WebBrowser1.Visible = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(733, 307)
+        Me.ClientSize = New System.Drawing.Size(726, 314)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.TabControl1)
@@ -219,5 +232,6 @@ Partial Class Form1
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
 
 End Class

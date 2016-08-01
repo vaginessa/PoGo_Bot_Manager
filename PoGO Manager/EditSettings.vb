@@ -13,6 +13,7 @@
                 config = config.Replace("<GooglePassword>password</GooglePassword>", "<GooglePassword>" & TextBox2.Text & "</GooglePassword>")
             Else
                 'If the account type is PTC, replace only the PTC login data
+                config = config.Replace("<AuthType>Google</AuthType>", "<AuthType>Ptc</AuthType>")
                 config = config.Replace("<PtcUsername>username</PtcUsername>", "<PtcUsername>" & TextBox1.Text & "</PtcUsername>")
                 config = config.Replace("<PtcPassword>password</PtcPassword>", "<PtcPassword>" & TextBox2.Text & "</PtcPassword>")
             End If
